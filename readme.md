@@ -4,7 +4,7 @@ This README explains key concepts of **DOM manipulation** and **event handling**
 
 ---
 
-## 1. Difference between `getElementById`, `getElementsByClassName`, and `querySelector / querySelectorAll`
+## 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 
 ### `getElementById`
 - Selects a single element by its **ID**.
@@ -30,7 +30,7 @@ Example:
 const element = document.querySelector('.myClass'); 
 const elements = document.querySelectorAll('.myClass');
 
-2. How to create and insert a new element into the DOM
+## 2. How do you create and insert a new element into the DOM?
 Use document.createElement() to create a new element.
 Insert it using appendChild() or insertBefore().
 
@@ -42,7 +42,8 @@ newDiv.textContent = 'I am a new element';
 // Append it to a parent container
 const container = document.getElementById('container');
 container.appendChild(newDiv);
-3. What is Event Bubbling and how does it work
+
+## 3. What is Event Bubbling and how does it work?
 Event Bubbling is when an event starts from the child element and propagates upwards to parent elements.
 
 Example:
@@ -58,7 +59,7 @@ document.getElementById('parent').addEventListener('click', () => {
 // Child clicked
 // Parent clicked
 
-4. What is Event Delegation and why is it useful
+## 4.What is Event Delegation in JavaScript? Why is it useful?
 Event Delegation allows attaching a single event listener to a parent element to handle events for its child elements.
 
 Benefits:
@@ -71,7 +72,8 @@ document.getElementById('parent').addEventListener('click', (e) => {
     console.log('Delete button clicked');
   }
 });
-5. Difference between preventDefault() and stopPropagation()
+
+## 5. What is the difference between preventDefault() and stopPropagation() methods?
 Method	What it does	Use case
 preventDefault()	Prevents the browser’s default behavior (e.g., form submit or link navigation)	When you want to stop default browser actions
 stopPropagation()	Stops the event from bubbling or capturing further	When you don’t want the event to reach parent elements
