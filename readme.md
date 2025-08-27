@@ -4,14 +4,8 @@ This README explains key concepts of **DOM manipulation** and **event handling**
 
 ---
 
-## 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
+## 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll? 
 
-### `getElementById`
-- Selects a single element by its **ID**.
-- Returns **one element**.  
-
-**Example:**
-```javascript
 const element = document.getElementById('myId');
 getElementsByClassName
 Selects all elements with a specific class.
