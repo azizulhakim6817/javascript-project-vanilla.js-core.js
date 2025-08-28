@@ -64,9 +64,8 @@ Users can interact with the services using **Copy** and **Call** buttons, track 
 
 ---
 
-### 2️⃣ How do you create and insert a new element into the DOM?
-
 ```js
+2️⃣ How do you create and insert a new element into the DOM?
 let newDiv = document.createElement("div");
 newDiv.textContent = "Hello World";
 document.body.appendChild(newDiv);
