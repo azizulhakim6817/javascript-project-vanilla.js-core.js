@@ -1,87 +1,95 @@
-### JavaScript DOM & Event Handling Concepts :
+📂 Project Structure
+Emergency-Hotline/
+│── index.html
+│── js/
+│   └── home.js
+│── assets/
+│   ├── logo.png
+│   ├── heart.png
+│   ├── coin.png
+│   ├── emergency.png
+│   └── ...
+│── README.md
 
-6. Answer the Following Questions
-### 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
+✅ Functionalities Covered
+Navbar with logo, website name, heart count, coins, copy count
+Hero Section with gradient bg, logo, title, slogan
+Cards (min. 6) with:
+Icon
+Service Name (Bangla/English)
+Hotline Number
+Category Badge
 
-getElementById(id)
-Returns a single DOM element that matches the given id.
+💗 Heart (click → increase heart count in navbar)
+Copy Button (copy number → increase copy count)
+Call Button (alert + deduct coins + add to history)
+Call History Section (dynamic)
+Clear History button
+Responsiveness for mobile ✅
 
-Example:
-const header = document.getElementById('main-header');
-Only one element can have a particular id, so it returns a single element.
-getElementsByClassName(className)
-Returns a live HTMLCollection of all elements with the specified class name.
+📜 Example README.md
+# 🚨 Emergency Hotline Directory
 
-Example:
-const boxes = document.getElementsByClassName('box');
-You can access elements using index, e.g., boxes[0].
-querySelector(selector) / querySelectorAll(selector)
-querySelector returns the first element that matches a CSS selector.
-querySelectorAll returns a static NodeList of all elements that match the selector.
+This project is a simple **Emergency Hotline Directory** built using **HTML, TailwindCSS, DaisyUI, and Vanilla JavaScript**.  
+It provides hotline numbers for important services with features like **copy number, call simulation, coin deduction, heart liking, and call history tracking**.
 
-Example:
-const firstBox = document.querySelector('.box'); // first element
-const allBoxes = document.querySelectorAll('.box'); // all elements
+---
 
-Summary:
-getElementById → single element by ID
-getElementsByClassName → live collection by class name
-querySelector → first match by CSS selector
-querySelectorAll → all matches by CSS selector
+## ✨ Features
+- 📌 Navbar with **logo, hearts, coins, copy counter**
+- 🎨 Hero section with **gradient background**
+- 📞 Cards showing hotline services
+- 💗 Like button (increase heart count in navbar)
+- 📋 Copy button (copy hotline number + increase counter)
+- 📲 Call button (deduct 20 coins + add call to history with timestamp)
+- 🕑 Call History section with clear option
+- 📱 Fully responsive for all devices
 
-### 2. How do you create and insert a new element into the DOM?
-Steps to create and insert a new element:
-Create the element
-const newDiv = document.createElement('div');
-Add content or attributes
-newDiv.textContent = 'Hello, I am new!';
-newDiv.className = 'new-box';
-Insert it into the DOM
-const container = document.getElementById('container');
-container.appendChild(newDiv); // adds at the end
-// or
-container.insertBefore(newDiv, container.firstChild); // adds at the beginning
+---
 
-### 3. What is Event Bubbling and how does it work?
-Event Bubbling is a type of event propagation in JavaScript.
-When an event happens on an element, it first triggers on the target element, then bubbles up to its parent elements, and continues up to the document root.
+## ⚙️ Technology Stack
+- **HTML**
+- **TailwindCSS**
+- **DaisyUI**
+- **Vanilla JavaScript**
 
-Example:
-document.getElementById('child').addEventListener('click', () => {
-console.log('Child clicked');
-});
+---
 
-document.getElementById('parent').addEventListener('click', () => {
-console.log('Parent clicked');
-});
+## 📘 Q&A Section
 
-Clicking the child element prints:
-Child clicked
-Parent clicked
+### 1. Difference between `getElementById`, `getElementsByClassName`, and `querySelector / querySelectorAll`?
+- `getElementById("id")` → Returns **one element** by its `id`.
+- `getElementsByClassName("class")` → Returns a **live HTMLCollection** of all matching elements.
+- `querySelector("selector")` → Returns the **first element** matching a CSS selector.
+- `querySelectorAll("selector")` → Returns a **static NodeList** of all matches.
 
-### 4. What is Event Delegation in JavaScript? Why is it useful?
-Event Delegation is a technique where we attach a single event listener to a parent element to handle events on its child elements.
-Instead of adding listeners to each child individually, the parent delegates the event handling.
+---
 
-Useful because:
-Saves memory by reducing the number of listeners.
-Handles dynamically added elements automatically.
+### 2. How to create and insert a new element into the DOM?
+```js
+const newDiv = document.createElement("div");
+newDiv.innerText = "Hello World!";
+document.body.appendChild(newDiv);
 
-Example:
-document.getElementById('list').addEventListener('click', (event) => {
-if(event.target.tagName === 'LI') {
-console.log('List item clicked:', event.target.textContent);
-}
-});
+👉 createElement() makes a new node, appendChild() inserts it into the DOM.
 
-### 5. What is the difference between preventDefault() and stopPropagation() methods?
-   Method What it does Use case
-   preventDefault() Stops the browser’s default action for an event Preventing a form from submitting or a link from navigating
-   stopPropagation() Stops the event from bubbling up to parent elements Preventing parent click handlers from being triggered
+3. What is Event Bubbling and how does it work?
+Event Bubbling means when an event happens on an element, it first runs on the target element, then goes up (bubble) to its parent, then ancestor elements.
+Example: Clicking on a button inside a div triggers the button’s click event → then div → then body.
 
-Example:
-document.getElementById('link').addEventListener('click', (e) => {
-e.preventDefault(); // stops navigation
-e.stopPropagation(); // stops bubbling
-console.log('Link clicked');
-});
+4. What is Event Delegation in JavaScript? Why is it useful?
+Event Delegation means assigning an event listener on a parent element instead of every child.
+It uses bubbling to detect which child triggered the event.
+👉 Useful for dynamic elements (e.g., adding new cards without re-attaching event listeners).
+
+5. Difference between preventDefault() and stopPropagation()?
+preventDefault() → Stops the default browser action (e.g., stopping form submit, stopping link redirect).
+stopPropagation() → Stops the event from bubbling up to parent elements.
+
+🧪 Challenges :
+✅ Copy button copies number to clipboard and increases counter
+✅ Call button shows alert, deducts 20 coins, adds history with timestamp
+
+✅ Show current time using:
+const now = new Date().toLocaleTimeString();
+✅ Clear button removes all history
