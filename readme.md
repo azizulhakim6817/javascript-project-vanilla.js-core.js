@@ -1,3 +1,11 @@
+## 📂 GitHub Repository : https://github.com/azizulhakim6817/javascript-project-vanilla.js-core.js
+
+---
+
+## 🌐 Live Link : https://azizulhakim6817.github.io/javascript-project-vanilla.js-core.js/
+
+---
+
 # 📞 Emergency Hotline Web App
 
 This is a simple **JavaScript Project** that displays emergency hotline services in **card format**.  
