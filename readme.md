@@ -1,180 +1,150 @@
-📂 Project Structure
-Emergency-Hotline/
-│── index.html
-│── js/
-│ └── home.js
-│── assets/
-│ ├── logo.png
-│ ├── heart.png
-│ ├── coin.png
-│ ├── emergency.png
-│ └── ...
-│── README.md
+📞 Emergency Hotline Web App
 
-✅ Functionalities Covered
+This is a simple JavaScript project that displays emergency hotline services in card format.
+Users can interact with the services using Copy and Call buttons, track call history, and manage coin balance with a heart/copy counter.
 
-Navbar with logo, website name, heart count, coins, copy count
+🚀 Features
 
-Hero Section with gradient bg, logo, title, slogan
+Navbar with website logo, heart counter, coin balance (default 100), and copy count.
 
-Cards (min. 6) with:
+Hero Section with gradient background, logo, title, and slogan.
 
-Icon
+Card Section showing at least 6 emergency services with:
 
-Service Name (Bangla/English)
+Service icon & name (Bangla + English)
 
-Hotline Number
+Hotline number
 
-Category Badge
+Category badge
 
-💗 Heart (click → increase heart count in navbar)
+❤️ Heart icon
 
-Copy Button (copy number → increase copy count)
+Buttons: Copy & Call
 
-Call Button (alert + deduct coins + add to history)
+History Section that stores all previous calls dynamically.
 
-Call History Section (dynamic)
+Emergency Hotline Section following Figma layout.
 
-Clear History button
+Responsive design for mobile devices.
 
-Responsiveness for mobile ✅
+⚡ Functionalities
 
-📜 Example README.md
+Heart Icon
 
-# 🚨 Emergency Hotline Directory
+Clicking a heart on a card increases the heart count in Navbar.
 
-This project is a simple **Emergency Hotline Directory** built using **HTML, TailwindCSS, DaisyUI, and Vanilla JavaScript**.  
-It provides hotline numbers for important services with features like **copy number, call simulation, coin deduction, heart liking, and call history tracking**.
+Call Button
 
----
+Shows alert with service name & number.
 
-## ✨ Features
+Deducts 20 coins from balance.
 
-- 📌 Navbar with **logo, hearts, coins, copy counter**
-- 🎨 Hero section with **gradient background**
-- 📞 Cards showing hotline services
-- 💗 Like button (increase heart count in navbar)
-- 📋 Copy button (copy hotline number + increase counter)
-- 📲 Call button (deduct 20 coins + add call to history with timestamp)
-- 🕑 Call History section with clear option
-- 📱 Fully responsive for all devices
+If coins < 20 → show alert and stop process.
 
----
+Adds service details (name, number, time) to History Section.
 
-## ⚙️ Technology Stack
+Copy Button
 
-- **HTML**
-- **TailwindCSS**
-- **DaisyUI**
-- **Vanilla JavaScript**
+Copies hotline number to clipboard.
 
----
+Shows success alert.
 
-## 📘 Q&A Section
-```js
+Increases Copy Count in Navbar.
+
+Call History Section
+
+Displays all calls made with name, number, and time.
+
+Clear History button removes all history.
+
+📱 Responsiveness
+
+Fully responsive for mobile and tablet view.
+
+📚 Q&A Section
+
 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
-***** getElementById(id)
 
-What it does:
-Finds the first (and only) element with the given id.
-Return type:
-A single element object (HTMLElement) or null if not found.
+getElementById(id) → Selects a single element by unique id. Returns only one element.
 
-Notes:
-IDs are meant to be unique, so this method always returns at most one element.
-Very fast because browsers optimize for IDs.
-✅ Example:
-let title = document.getElementById("main-title");
-console.log(title.textContent);
+getElementsByClassName(class) → Selects multiple elements with the same class. Returns an HTMLCollection (live).
 
-***** getElementsByClassName(className)
-What it does:
-Finds all elements with the given class name.
-Return type:
-An HTMLCollection (live collection, not an array).
-"Live" means it updates automatically if the DOM changes.
+querySelector(selector) → Selects the first matching element using CSS selectors (#id, .class, tag).
 
-Notes:
-Can match multiple elements.
-Needs to be looped through (for...of or convert to array).
-✅ Example:
-let items = document.getElementsByClassName("list-item");
-for (let item of items) {
-  console.log(item.textContent);
-}
+querySelectorAll(selector) → Selects all matching elements using CSS selectors. Returns a NodeList (static).
 
-***** querySelector(cssSelector)
-What it does:
-Finds the first element that matches a CSS selector (id, class, tag, attribute, etc.).
-Return type:
-A single element (HTMLElement) or null.
+2. How do you create and insert a new element into the DOM?
+   let newDiv = document.createElement("div");  
+   newDiv.textContent = "Hello World";  
+   document.body.appendChild(newDiv);
 
-Notes:
-More powerful than getElementById or getElementsByClassName since it supports full CSS selectors.
-Slightly slower than ID lookup but more flexible.
-✅ Example:
-let firstItem = document.querySelector(".list-item"); // first element with class "list-item"
-console.log(firstItem.textContent);
+createElement() → creates a new element.
 
-***** querySelectorAll(cssSelector)
-What it does:
-Finds all elements that match a CSS selector.
-Return type:
-A NodeList (static collection, not live).
-Unlike HTMLCollection, it does not update if the DOM changes.
+textContent → adds text.
 
-Notes:
-You can use array methods on it (after spreading or using forEach).
-✅ Example:
-let allItems = document.querySelectorAll(".list-item");
-allItems.forEach(item => console.log(item.textContent));
+appendChild() → inserts it into DOM.
 
-🔑 Quick Comparison:
-Method	Selector Type	Returns	Live/Static	Example Usage
-getElementById("id")	ID only	Single element or null	❌ (Single)	Fast unique lookup
-getElementsByClassName("c")	Class only	HTMLCollection	✅ Live	Multiple by class
-querySelector("css")	Any CSS selector	First match	❌ Static	Flexible single
-querySelectorAll("css")	Any CSS selector	NodeList	❌ Static	Flexible multiple
-
-👉 Rule of Thumb:
-Use getElementById if you know the element’s ID.
-Use getElementsByClassName if you want multiple elements by class.
-Use querySelector / querySelectorAll for more powerful CSS-like selection (best for complex queries).
-
----
-
-2. How to create and insert a new element into the DOM?
-const newDiv = document.createElement("div");
-newDiv.innerText = "Hello World!";
-document.body.appendChild(newDiv);
-
----
-
-👉 createElement() makes a new node, appendChild() inserts it into the DOM.
 3. What is Event Bubbling and how does it work?
-Event Bubbling means when an event happens on an element, it first runs on the target element, then goes up (bubble) to its parent, then ancestor elements.
-Example: Clicking on a button inside a div triggers the button’s click event → then div → then body.
 
----
+Event bubbling means when an event occurs on an element, it first runs on the target element and then bubbles up to its parent, grandparent, until reaching document.
+
+Example: Clicking a button inside a div triggers both the button’s event and the parent div’s event unless stopped.
 
 4. What is Event Delegation in JavaScript? Why is it useful?
-Event Delegation means assigning an event listener on a parent element instead of every child.
-It uses bubbling to detect which child triggered the event.
-👉 Useful for dynamic elements (e.g., adding new cards without re-attaching event listeners).
 
----
+Event delegation is attaching a single event listener to a parent element instead of multiple child elements.
 
-5. Difference between preventDefault() and stopPropagation()?
-preventDefault() → Stops the default browser action (e.g., stopping form submit, stopping link redirect).
+Useful because it reduces memory usage and works for dynamically created elements.
+
+Example:
+
+document.querySelector("#list").addEventListener("click", (e) => {
+if (e.target.tagName === "LI") {
+console.log("List item clicked:", e.target.textContent);
+}
+});
+
+5. What is the difference between preventDefault() and stopPropagation()?
+
+preventDefault() → Prevents default browser action (e.g., form submission, link navigation).
+
 stopPropagation() → Stops the event from bubbling up to parent elements.
 
----
-
 🧪 Challenges
-✅ Copy button copies number to clipboard and increases counter
-✅ Call button shows alert, deducts 20 coins, adds history with timestamp
-✅ Show current time using:
-const now = new Date().toLocaleTimeString();
 
-✅ Clear button removes all history
-```
+✅ Copy Button
+
+Copies the hotline number to clipboard.
+
+Increases copy count in Navbar.
+
+✅ Call Button
+
+Deducts 20 coins on each call.
+
+Shows alert with service name & number.
+
+If coins < 20 → block call.
+
+Adds call entry (name, number, time) into history.
+
+✅ History Section
+
+Stores call history dynamically.
+
+Clear History button removes all history.
+
+✅ Local Time on Call
+
+let now = new Date().toLocaleString();
+
+This shows exact local date & time of call in history.
+
+📂 Project Structure
+/project-root
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+
+✍️ Made with HTML, CSS, JavaScript
