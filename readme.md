@@ -72,18 +72,15 @@ It provides hotline numbers for important services with features like **copy num
 
 ## 📘 Q&A Section
 
-### 1. Difference between `getElementById`, `getElementsByClassName`, and `querySelector / querySelectorAll`?
+```js
+ 1. Difference between `getElementById`, `getElementsByClassName`, and `querySelector / querySelectorAll`?
 
 - `getElementById("id")` → Returns **one element** by its `id`.
 - `getElementsByClassName("class")` → Returns a **live HTMLCollection** of all matching elements.
 - `querySelector("selector")` → Returns the **first element** matching a CSS selector.
 - `querySelectorAll("selector")` → Returns a **static NodeList** of all matches.
 
----
-
-### 2. How to create and insert a new element into the DOM?
-
-```js
+2. How to create and insert a new element into the DOM?
 const newDiv = document.createElement("div");
 newDiv.innerText = "Hello World!";
 document.body.appendChild(newDiv);
